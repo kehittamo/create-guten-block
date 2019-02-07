@@ -38,11 +38,11 @@ module.exports = ( blockName, blockDir ) => {
 		JSON.stringify( appPackage, null, 2 ) + '\n'
 	);
 
-	// Install latest exact version of cgb-scripts.
+	// Install different version of cgb-scripts.
 	return new Promise( async resolve => {
 		await execa( 'npm', [
 			'install',
-			'cgb-scripts',
+			'@namia/cgb-scripts',
 			'--save',
 			'--save-exact',
 			'--silent',

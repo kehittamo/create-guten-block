@@ -17,7 +17,7 @@ module.exports = ( blockName, blockDir ) => {
 	const scriptsPath = path.resolve(
 		blockDir,
 		'node_modules',
-		'cgb-scripts',
+		'@namia/cgb-scripts',
 		'scripts',
 		'init.js'
 	);
