@@ -16,7 +16,7 @@ const fs = require( 'fs-extra' );
 const execa = require( 'execa' );
 const shell = require( 'shelljs' );
 
-module.exports = ( blockName, blockDir ) => {
+module.exports = ( blockName, blockDir, isCanary ) => {
 	shell.cd( blockDir );
 	shell.touch( 'package.json' );
 
@@ -33,10 +33,7 @@ module.exports = ( blockName, blockDir ) => {
 	};
 
 	// Write the package.json file.
-	fs.writeFileSync(
-		path.join( process.cwd(), 'package.json' ),
-		JSON.stringify( appPackage, null, 2 ) + '\n'
-	);
+	fs.writeFileSync( path.join( process.cwd(), 'package.json' ), JSON.stringify( appPackage, null, 2 ) + '\n' );
 
 	// Install different version of cgb-scripts.
 	return new Promise( async resolve => {
