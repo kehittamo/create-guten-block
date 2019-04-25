@@ -10,12 +10,15 @@
 const chalk = require( 'chalk' );
 
 module.exports = ( blockName, blockDir ) => {
+	// Change blockName prefix if starts with kehittamo-.
+	const kehittamoBlockName = blockName.startsWith('kehittamo-') ? `kehittamo/${blockName.substr(10)}` : blockName;
+
 	console.log( '\n' );
 	console.log(
 		'📦 ',
 		chalk.black.bgYellow(
-			` Creating a WP Gutenberg Block plugin called: ${ chalk.bgGreen(
-				` ${ blockName } `
+			` Creating a WP Gutenberg Block called: ${ chalk.bgGreen(
+				` ${ kehittamoBlockName } `
 			) }\n`
 		),
 		chalk.dim( `\n In the directory: ${ blockDir }\n` ),

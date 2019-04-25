@@ -41,7 +41,7 @@ module.exports = async() => {
 	// Init the spinner.
 	const spinner = ora( { text: '' } );
 
-	spinner.start( `1. Creating the plugin directory called → ${ chalk.black.bgWhite( ` ${ blockName } ` ) }` );
+	spinner.start( `1. Creating the block directory called → ${ chalk.black.bgWhite( ` ${ blockName } ` ) }` );
 	await createPluginDir( blockName, blockDir );
 	spinner.succeed();
 

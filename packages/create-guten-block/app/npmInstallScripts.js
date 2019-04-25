@@ -22,7 +22,7 @@ module.exports = ( blockName, blockDir, isCanary ) => {
 
 	// Build a package.json file since npm install needs it.
 	const appPackage = {
-		name: `${ blockName }-cgb-guten-block`,
+		name: `@namia/${ blockName }`,
 		version: '1.0.0',
 		private: true,
 		scripts: {
