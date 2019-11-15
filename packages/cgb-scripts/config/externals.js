@@ -19,10 +19,12 @@ const camelCaseDash = string => string.replace( /-([a-z])/g, ( match, letter ) =
  */
 const externals = [
 	'components',
+	'api-fetch',
 	'edit-post',
 	'element',
 	'plugins',
 	'editor',
+	'block-editor',
 	'blocks',
 	'hooks',
 	'utils',
@@ -39,9 +41,10 @@ const externals = [
 		ga: 'ga', // Old Google Analytics.
 		gtag: 'gtag', // New Google Analytics.
 		react: 'React', // React itself is there in Gutenberg.
-		jquery: 'jQuery', // import $ from 'jquery' // Use the WordPress version after enqueuing it.
+		jquery: 'jQuery', // import $ from 'jquery'; // Use jQuery from WP after enqueuing it.
 		'react-dom': 'ReactDOM',
 		lodash: 'lodash', // Lodash is there in Gutenberg.
+		cgbGlobal: 'cgbGlobal', // import globals from 'cgbGlobal'; // Localized data.
 	}
 );
 

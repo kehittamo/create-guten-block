@@ -53,6 +53,17 @@ function <% blockNamePHPLower %>_cgb_block_assets() { // phpcs:ignore
 		null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.editor.build.css' ) // Version: File modification time.
 	);
 
+	// WP Localized globals. Use dynamic PHP stuff in JavaScript via `cgbGlobal` object.
+	wp_localize_script(
+		'<% blockNamePHPLower %>-cgb-block-js',
+		'cgbGlobal', // Array containing dynamic data for a JS Global.
+		[
+			'pluginDirPath' => plugin_dir_path( __DIR__ ),
+			'pluginDirUrl'  => plugin_dir_url( __DIR__ ),
+			// Add more data here that you want to access from `cgbGlobal` object.
+		]
+	);
+
 	/**
 	 * Register Gutenberg block on server-side.
 	 *
