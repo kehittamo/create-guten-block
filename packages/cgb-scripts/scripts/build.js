@@ -29,8 +29,7 @@ const resolvePkg = require( 'resolve-pkg' );
 const config = require( '../config/webpack.config.prod' );
 const cgbDevUtilsPath = resolvePkg( 'cgb-dev-utils', { cwd: __dirname } );
 const clearConsole = require( cgbDevUtilsPath + '/clearConsole' );
-const formatWebpackMessages = require( cgbDevUtilsPath +
-	'/formatWebpackMessages' );
+const formatWebpackMessages = require( cgbDevUtilsPath + '/formatWebpackMessages' );
 
 // Build file paths.
 const theCWD = process.cwd();
@@ -96,8 +95,7 @@ async function build( webpackConfig ) {
 		// CI.
 		if (
 			process.env.CI &&
-			( typeof process.env.CI !== 'string' ||
-				process.env.CI.toLowerCase() !== 'false' ) &&
+			( typeof process.env.CI !== 'string' || process.env.CI.toLowerCase() !== 'false' ) &&
 			messages.warnings.length
 		) {
 			console.log(
@@ -129,9 +127,10 @@ async function build( webpackConfig ) {
 			getFileSize( fileStyleCSS ),
 			`${ chalk.dim( '— ./dist/' ) }`,
 			`${ chalk.green( 'blocks.style.build.css' ) }`,
-
 			'\n\n'
 		);
+
+		console.log( '\n👌 ', chalk.dim( ' Support Awais via VSCode Power User at https://VSCode.pro → \n' ) );
 
 		return true;
 	} );

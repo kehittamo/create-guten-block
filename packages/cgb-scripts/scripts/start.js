@@ -27,8 +27,7 @@ const config = require( '../config/webpack.config.dev' );
 const resolvePkg = require( 'resolve-pkg' );
 const cgbDevUtilsPath = resolvePkg( 'cgb-dev-utils', { cwd: __dirname } );
 const clearConsole = require( cgbDevUtilsPath + '/clearConsole' );
-const formatWebpackMessages = require( cgbDevUtilsPath +
-	'/formatWebpackMessages' );
+const formatWebpackMessages = require( cgbDevUtilsPath + '/formatWebpackMessages' );
 
 // Don't run below node 8.
 const currentNodeVersion = process.versions.node;
@@ -85,19 +84,14 @@ async function build( webpackConfig ) {
 			console.log( '\n❌ ', chalk.black.bgRed( ' Failed to compile. \n' ) );
 			const logErrors = console.log( '\n👉 ', messages.errors.join( '\n\n' ) );
 			console.log( '\n' );
-			spinner.start(
-				chalk.dim(
-					'Watching for changes... let\'s fix this... (Press CTRL + C to stop).'
-				)
-			);
+			spinner.start( chalk.dim( 'Watching for changes... let\'s fix this... (Press CTRL + C to stop).' ) );
 			return logErrors;
 		}
 
 		// CI.
 		if (
 			process.env.CI &&
-			( typeof process.env.CI !== 'string' ||
-				process.env.CI.toLowerCase() !== 'false' ) &&
+			( typeof process.env.CI !== 'string' || process.env.CI.toLowerCase() !== 'false' ) &&
 			messages.warnings.length
 		) {
 			console.log(
@@ -116,11 +110,10 @@ async function build( webpackConfig ) {
 			chalk.dim( '   Note that the development build is not optimized. \n' ),
 			chalk.dim( '  To create a production build, use' ),
 			chalk.green( 'npm' ),
-			chalk.white( 'run build\n' )
+			chalk.white( 'run build\n\n' ),
+			chalk.dim( '👌  Support Awais via VSCode Power User at https://VSCode.pro →\n\n' )
 		);
-		return spinner.start(
-			`${ chalk.dim( 'Watching for changes... (Press CTRL + C to stop).' ) }`
-		);
+		return spinner.start( `${ chalk.dim( 'Watching for changes... (Press CTRL + C to stop).' ) }` );
 	} );
 }
 
